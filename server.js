@@ -24,6 +24,12 @@ app.use(express.urlencoded({ extended: false }))
 // to serve files from public statically
 app.use(express.static('public'))
 
+////////////////////////////////////////////////////////
+// Routes
+////////////////////////////////////////////////////////
+app.get('/', (req, res) => {
+    res.send('your server is running, better go catch it')
+})
 
 
 ////////////////////////////////////////////////////////
