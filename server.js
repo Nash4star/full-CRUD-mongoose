@@ -6,7 +6,7 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-// we'll also import our fruits model when we have it
+const Fruit = require('./models/fruit')
 
 ////////////////////////////////////////////////////////
 // Create our express application object
