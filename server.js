@@ -78,6 +78,25 @@ app.get('/fruits/new', (req, res) => {
 })
 
 // create -> POST route that actully calls the db and makes a new document
+app.post('/fruits', (req, res) => {
+    // check if the readyToEat property should be true or false
+    // we can check AND set this property in one line of code
+    // first part sets the property name
+    // second is a ternary to set the value
+    req.body.readyToEat = req.body.readyToEat === 'on' ? true : false
+    // console.log('this is the fruit to create', req.body)
+    // now we're ready for mongoose to do its thing
+    Fruit.create(req.body)
+        .then(data => {
+            // console.log('this was returned from create', data)
+            res.redirect('/fruits')
+        })
+        .catch(err => {
+            console.log(err)
+            res.json({ err })
+        })
+
+})
 
 // show route
 app.get('/fruits/:id', (req, res) => {
@@ -95,6 +114,25 @@ app.get('/fruits/:id', (req, res) => {
             res.json({ err })
         })
 })
+
+// delete route
+app.delete('/fruits/:id', (req, res) => {
+    // get the fruit id
+    const fruitId = req.params.id
+    // delete the fruit
+    Fruit.findByIdAndRemove(fruitId)
+        .then(fruit => {
+            console.log('this is the response from FBID', fruit)
+            res.redirect('/fruits')
+        })
+        .catch(error => {
+            console.log(error)
+            res.json({ error })
+        })
+        
+})
+
+
 ////////////////////////////////////////////
 //             Server Listener            //
 ////////////////////////////////////////////

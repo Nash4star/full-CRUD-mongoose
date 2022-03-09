@@ -13,6 +13,9 @@
                 {%endif%}
             </h2>
             <h3>{{ fruit.color }}</h3>
+            <form action="/fruits/{{ fruit._id }}?_method=DELETE" method="POST">
+                <input type="submit" value="Delete That Fruit">
+            </form>
         </article>
     </div>
 {% endblock %}
