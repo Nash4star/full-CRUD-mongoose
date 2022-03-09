@@ -1,5 +1,5 @@
 /////////////////////////////////
-// import dependencies
+//      import dependencies    //
 /////////////////////////////////
 // this allows us to load our env variables
 require('dotenv').config()
@@ -9,12 +9,12 @@ const methodOverride = require('method-override')
 const Fruit = require('./models/fruit')
 
 ////////////////////////////////////////////
-// Create our express application object
+// Create our express application object  //
 ////////////////////////////////////////////
 const app = require('liquid-express-views')(express())
 
 ////////////////////////////////////////////
-// Middleware
+//              Middleware                //
 ////////////////////////////////////////////
 // this is for request logging
 app.use(morgan('tiny'))
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 ////////////////////////////////////////////
-// Routes
+//                Routes                  //
 ////////////////////////////////////////////
 app.get('/', (req, res) => {
     res.send('your server is running, better go catch it')
@@ -72,15 +72,22 @@ app.get('/fruits', (req, res) => {
         })
 })
 
+// new route -> Get route that renders our page with the form
+app.get('/fruits/new', (req, res) => {
+    res.render('fruits/new')
+})
+
+// create -> POST route that actully calls the db and makes a new document
 
 // show route
 app.get('/fruits/:id', (req, res) => {
+    // first, we need to get the id
     const fruitId = req.params.id
-
+    // 
     Fruit.findById(fruitId)
 
         .then(fruit => {
-            res.send(fruit)
+            res.render('fruits/show', {fruit})
         })
 
         .catch(err => {
@@ -89,7 +96,7 @@ app.get('/fruits/:id', (req, res) => {
         })
 })
 ////////////////////////////////////////////
-// Server Listener
+//             Server Listener            //
 ////////////////////////////////////////////
 const PORT = process.env.PORT
 app.listen(PORT, () => {

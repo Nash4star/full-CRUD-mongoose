@@ -1,0 +1,18 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div>
+        <!-- you can do fun things like inline style with properties of your rendered object -->
+        <!-- <article style="background-color:{{fruit.color}}"> -->
+        <article>
+            <h2>
+                {{ fruit.name }} - 
+                {% if fruit.readyToEat %}
+                    Ready to Eat
+                {% else %}
+                    Not Ready to Eat
+                {%endif%}
+            </h2>
+            <h3>{{ fruit.color }}</h3>
+        </article>
+    </div>
+{% endblock %}
