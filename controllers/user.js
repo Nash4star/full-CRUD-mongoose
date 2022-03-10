@@ -17,7 +17,7 @@ const router = express.Router()
 // two sign up routes
 // get to render the signup form
 router.get('/signup', (req, res) => {
-    res.render('user/signup')
+    res.render('users/signup')
 })
 // post to send the signup info
 router.post('/signup', async (req, res) => {
@@ -44,7 +44,7 @@ router.post('/signup', async (req, res) => {
 // two login routes
 // get to render the login form
 router.get('/login', (req, res) => {
-    res.render('user/login')
+    res.render('users/login')
 })
 // post to send the login info(and create a session)
 router.post('/login', async (req, res) => {
@@ -89,7 +89,7 @@ router.get('/logout', (req, res) => {
     // destroy the session and redirect to the main page
     req.session.destroy(err => {
         console.log('this is err in logout', err)
-        res.send('your session has been destroyed')
+        res.redirect('/')
     })
 })
 
