@@ -1,5 +1,5 @@
 /////////////////////////////////
-//      import dependencies    //
+// import dependencies
 /////////////////////////////////
 // this allows us to load our env variables
 require('dotenv').config()
@@ -17,12 +17,12 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 
 ////////////////////////////////////////////
-//  Create our express application object //
+// Create our express application object
 ////////////////////////////////////////////
 const app = require('liquid-express-views')(express())
 
 ////////////////////////////////////////////
-//              Middleware                //
+// Middleware
 ////////////////////////////////////////////
 // this is for request logging
 app.use(morgan('tiny'))
@@ -42,20 +42,19 @@ app.use(
 )
 
 ////////////////////////////////////////////
-//                Routes                  //
+// Routes //
 ////////////////////////////////////////////
-
 // send all '/fruits' routes to the Fruit Router
 app.use('/fruits', FruitRouter)
 app.use('/user', UserRouter)
 
 app.get('/', (req, res) => {
-    res.send('your server is running, better go catch it')
+    res.send('your server is running, better go get it')
 })
 
 
 ////////////////////////////////////////////
-//             Server Listener            //
+// Server Listener
 ////////////////////////////////////////////
 const PORT = process.env.PORT
 app.listen(PORT, () => {

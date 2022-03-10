@@ -1,18 +1,16 @@
 /////////////////////////////////
-//     import dependencies     //
+// import dependencies
 /////////////////////////////////
-
 const mongoose = require('./connection')
 
 /////////////////////////////////
-//   define our fruits model   //
+// define our user model
 /////////////////////////////////
-
 // pull the schema and model constructors from mongoose
 // we're going to use something called destructuring to accomplish this
 const { Schema, model } = mongoose
 
-// Make a user Schema
+// Make a user schema
 const userSchema = new Schema({
     username: {
         type: String,
@@ -25,11 +23,10 @@ const userSchema = new Schema({
     }
 })
 
-// make a user model
-const User = model('Uder', userSchema)
-
+// Make a user model
+const User = model("User", userSchema)
 
 /////////////////////////////////
-//    export our user model    //
+// export our user model
 /////////////////////////////////
 module.exports = User

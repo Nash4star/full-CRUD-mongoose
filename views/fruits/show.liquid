@@ -13,10 +13,13 @@
                 {%endif%}
             </h2>
             <h3>{{ fruit.color }}</h3>
-            <a href="/fruits/{{ fruit.id }}/edit" class="btn btn-primary">Edit</a>
-            <form action="/fruits/{{ fruit._id }}?_method=DELETE" method="POST">
-                <input type="submit" value="delete that froot" class="btn btn-danger">
-            </form>
+            <div class="btn-group">
+
+                <a href="/fruits/{{ fruit.id }}/edit" class="btn btn-primary">Edit</a>
+                <form action="/fruits/{{ fruit._id }}?_method=DELETE" method="POST">
+                    <input type="submit" value="delete that froot" class="btn btn-danger">
+                </form>
+            </div>
         </article>
     </div>
 {% endblock %}
