@@ -1,32 +1,31 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-    <div>
+    <div class="container-sm">
         <form action="/fruits" method="POST">
             <fieldset>
                 <legend>Create New Fruit</legend>
-                <label>
-                    Name: 
+                <label class="form-label">Name:</label>
                     <input 
                         type="text" 
                         name="name"
                         placeholder="enter fruit name"
+                        class="form-control"
                     >
-                </label>
-                <label>
-                    Color:
+                
+                <label class="form-label">Color:</label>
                     <input 
                         type="text" 
                         name="color" 
                         placeholder="enter fruit color"
+                        class="form-control"
                     >
-                </label>
-                <label>
-                    Ready To Eat:
+                
+                <label class="form-label">Ready To Eat:</label>
                     <input 
                         type="checkbox" 
                         name="readyToEat"
-                    >
-                </label>
+                        class="form-check-input"
+                    >               
             </fieldset>
             <input 
                 type="submit" 
