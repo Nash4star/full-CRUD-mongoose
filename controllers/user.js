@@ -14,6 +14,10 @@ const router = express.Router()
 // Routes
 ////////////////////////////////////////////
 
+// example
+router.get('/', (req, res) => {
+    res.send('helooooooooooooo donut')
+})
 // two sign up routes
 // get to render the signup form
 router.get('/signup', (req, res) => {
