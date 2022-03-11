@@ -11,6 +11,7 @@ const express = require('express')
 const FruitRouter = require('./controllers/fruit')
 const UserRouter = require('./controllers/user')
 const HomeRouter = require('./controllers/home')
+const CommentRouter = require('./controllers/comment')
 const middleware = require('./utils/middleware')
 
 ////////////////////////////////////////////
@@ -26,8 +27,10 @@ middleware(app)
 ////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
+// register our routes here
 // send all '/fruits' routes to the Fruit Router
 app.use('/fruits', FruitRouter)
+app.use('/comments', CommentRouter)
 app.use('/user', UserRouter)
 app.use('/', HomeRouter)
 
